@@ -4,7 +4,7 @@ CREATE TABLE "User" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "email" TEXT NOT NULL,
-    "hash" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
     "firstName" TEXT,
     "lastname" TEXT,
 
@@ -22,3 +22,6 @@ CREATE TABLE "Bookmark" (
 
     CONSTRAINT "Bookmark_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
