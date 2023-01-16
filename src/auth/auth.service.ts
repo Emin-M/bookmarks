@@ -59,6 +59,11 @@ export class AuthService {
       },
     });
 
+    if (!user)
+      throw new ForbiddenException(
+        'Credentials incorrect!',
+      );
+
     //^ compare password
     const pwMatches = await argon.verify(
       user.password,
@@ -66,7 +71,7 @@ export class AuthService {
     );
 
     //^ if user does not exist or password incorrect throw exception
-    if (!user || !pwMatches)
+    if (!pwMatches)
       throw new ForbiddenException(
         'Credentials incorrect!',
       );
