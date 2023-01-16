@@ -29,7 +29,7 @@ export class AuthService {
           email: dto.email,
           password: hashedPassword,
           firstName: dto.firstName,
-          lastname: dto.lastName,
+          lastName: dto.lastName,
         },
         // select: {
         //   email: true,
